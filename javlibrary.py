@@ -45,7 +45,7 @@ def getinfo(url):
     video_review_area = soup.find(attrs={'id': 'video_review'})
     video_review_text = video_review_area.find(attrs={'class': 'score'}).get_text().strip()
     review_pattern = re.compile('\d+.\d+')
-    if review_pattern.search(video_review_text).group(0):
+    if review_pattern.search(video_review_text):
         video_review = review_pattern.search(video_review_text).group(0)
     else:
         video_review = ''
