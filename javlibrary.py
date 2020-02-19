@@ -1,3 +1,4 @@
+# this file scrape javlibrary mostwanted page, extract each movie.
 import cloudscraper
 from bs4 import BeautifulSoup
 import time
