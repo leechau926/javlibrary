@@ -16,7 +16,7 @@ def getinfo(url):
 
     # print video_title
     video_title_area = soup.find(attrs={'id': 'video_title'})
-    video_title = video_title_area.find(name='h3').a.get_text()
+    video_title = video_title_area.h3.get_text()
     # print("video_title: " + video_title)
     # print video_id
     video_id_area = soup.find(attrs={'id': 'video_id'})
@@ -94,12 +94,10 @@ def main(page):
     javlib = []
     for url in jav_list:
         javlib.append(getinfo(url))
-        print("***completed***" + url)
         # print time
         localtime = time.asctime(time.localtime(time.time()))
-        print ("本地时间为 :", localtime)
+        print (localtime + "***completed***" + url)
         time.sleep(5)
-    # print(javlib)
     header = ['video_title', 'video_id', 'video_imgurl', 'video_date', 'video_director',
               'video_maker', 'video_label', 'video_review', 'video_cast', 'video_genres']
     with open('javlib.csv', 'a', encoding='utf-8') as f:
@@ -110,11 +108,7 @@ def main(page):
 if __name__ == "__main__":
     for page in range(1, 11):
         localtime = time.asctime(time.localtime(time.time()))
-        print("本地时间为 :", localtime)
-        print("######## page %d start ########" % page)
+        print(localtime + "######## page %d start ########" % page)
         main(page)
         localtime = time.asctime(time.localtime(time.time()))
-        print("本地时间为 :", localtime)
-        print("######## page %d completed ########" % page)
-
-
+        print(localtime + "######## page %d completed ########" % page)
