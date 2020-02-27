@@ -13,7 +13,7 @@ scraper for javlibrary
 
 直接运行
 
-python3 javlib.py
+python3 javlibrary.py
 
 
 
